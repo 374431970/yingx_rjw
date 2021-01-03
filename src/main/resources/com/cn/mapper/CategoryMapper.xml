@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.dao.CategoryDao">
+
+    <resultMap id="cat" type="com.cn.po.CategoryPO">
+        <id column="id" property="id"></id>
+        <result column="cate_name" property="cateName"></result>
+        <result column="levels" property="levels"></result>
+        <result column="parent_id" property="parentId"></result>
+        <collection property="categoryList" ofType="com.cn.po.CategoryPO">
+            <id column="bid" property="id"></id>
+            <result column="bcate_name" property="cateName"></result>
+            <result column="blevels" property="levels"></result>
+            <result column="bparend_id" property="parentId"></result>
+        </collection>
+     </resultMap>
+
+
+
+    <select id="queryAllCategory" resultMap="cat">
+        SELECT 	a.id,a.cate_name,a.levels,a.parent_id,
+				b.id bid,b.cate_name bcate_name,b.levels blevels
+      from yx_category a
+      LEFT JOIN yx_category b
+      ON b.parent_id = a.id where a.levels=14l.
+      yxz91
+    </select>
+</mapper>
