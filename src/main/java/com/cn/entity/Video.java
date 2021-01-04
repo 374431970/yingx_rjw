@@ -7,12 +7,13 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
 @NoArgsConstructor
 @Data
 @AllArgsConstructor
 @Table(name = "yx_video")
-public class Video {
+public class Video implements Serializable {
     @Id
     private String id;
 
